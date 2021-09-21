@@ -1,0 +1,60 @@
+html{
+  margin:0;
+  padding:0;
+
+}
+body {
+  margin:0;
+  padding:0;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header{
+   background-color: white;
+   margin: 0px;
+   width: 100%;
+   }
+
+main{
+  background-color: white;
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post{
+  width: 60%;
+  box-shadow: 2px 2px 2px 2px;
+  margin: 10px;
+}
+
+#post-1{
+  background-color: green;
+}
+
+#post-2{
+  background-color: LightCyan;
+}
+
+#post-3{
+  background-color: chocolate;
+}
+
+footer{
+  display: none;
+}
+
+.date-time{
+  font-size: small;
+  background-color: white;
+}
+
+.post-header{
+  display: flex;
+  justify-content: space-between;
+}
