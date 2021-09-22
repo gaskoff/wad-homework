@@ -58,3 +58,7 @@ footer{
   display: flex;
   justify-content: space-between;
 }
+
+.post-header > img {
+  height: 30px;
+}
