@@ -2,7 +2,22 @@
 homework-group-999
 
 # TODO
-- [ ] luua kõik html elemendid
+- [ ] luua kõik html elemendid (index.html)
+     - [ ] header
+          - [ ] logo vasakul
+          - [ ] vorm keskel
+          - [ ] logo paremal
+     - [ ] main
+          - [ ] postitus
+               - [x] päis
+                    - [x] logo vasakul
+                    - [x] kuupäev ja kellaeg
+               - [ ] sisu
+                    - [ ] pilt
+                    - [x] tekst
+               - [ ] jalus
+                    - [ ] pöial vasakul (link?)
+- [ ] luua kõik html elemendid (login.html)
 - [ ] html elementidele klassid/id-d
 - [ ] otsida pildid/ikoonid
      - [x] pea
