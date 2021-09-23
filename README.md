@@ -17,23 +17,23 @@ homework-group-999
                     - [x] tekst
                - [x] jalus
                     - [x] pöial vasakul (link?)
-- [ ] luua kõik html elemendid (login.html)
+- [x] luua kõik html elemendid (login.html)
 - [ ] html elementidele klassid/id-d
-- [ ] otsida pildid/ikoonid
+- [x] otsida pildid/ikoonid
      - [x] pea
      - [x] pöial
-     - [ ] logo vasakul nurgas
+     - [x] logo vasakul nurgas
      - [x] pildid postitustes
 - [ ] css selliselt, et asi enam-vähem välja näeks
      - [ ] otsingu väli ja nupp kenamaks
      - [ ] kuupäeva font ilusamaks
-- [ ] css ülesandele vastavalt
+- [x] css ülesandele vastavalt
     - [x] Use flexbox to arrange the layout
-    - [ ] Use an ID selector
+    - [x] Use an ID selector
     - [x] Use at least 2 different class selectors
-    - [ ] Use a pseudo-element or pseudo-class
+    - [x] Use a pseudo-element or pseudo-class
     - [x] Use a Descendant Selector (e.g., div p)
     - [x] Use a Child Selector (e.g., div > p)
-    - [ ] Use an Adjacent Sibling Selector (e.g., div + p)
-    - [ ] Use a General Sibling Selector (e.g., div ~ p)
+    - [x] Use an Adjacent Sibling Selector (e.g., div + p)
+    - [x] Use a General Sibling Selector (e.g., div ~ p)
 - [ ] kood puhtamaks
