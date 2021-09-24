@@ -37,3 +37,4 @@ homework-group-999
     - [x] Use an Adjacent Sibling Selector (e.g., div + p)
     - [x] Use a General Sibling Selector (e.g., div ~ p)
 - [x] kood puhtamaks
+
