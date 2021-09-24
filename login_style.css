@@ -1,6 +1,7 @@
 body {
     background-color: SteelBlue;
 }
+
 #login_box{
     background-color: White;
     width:350px;
@@ -11,15 +12,18 @@ body {
     margin-top: -200px;
     margin-left: -175px;
 }
+
 h1{
     color: black;
     text-align: center;
     font-size: 18px;
 }
+
 p::first-line{
     text-decoration:underline;
     color: aqua;
 }
+
 input + span{
     text-decoration:underline;
     color: aqua;
@@ -27,10 +31,12 @@ input + span{
     margin-top: 20px;
     text-align: center;
 }
+
 p{
     text-align: center;
 
 }
+
 div ~ input {
     background-color: royalblue;
     display: block;
@@ -38,13 +44,16 @@ div ~ input {
     text-align: center;
     color: azure;
 }
+
 input{
     text-align: left;
     margin-top: 10px;
 }
+
 #login_field{
     text-align: center;
 }
+
 img{
     width: 50px;
     height: 50px;

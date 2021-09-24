@@ -24,9 +24,9 @@ homework-group-999
      - [x] pöial
      - [x] logo vasakul nurgas
      - [x] pildid postitustes
-- [ ] css selliselt, et asi enam-vähem välja näeks
-     - [ ] otsingu väli ja nupp kenamaks
-     - [ ] kuupäeva font ilusamaks
+- [x] css selliselt, et asi enam-vähem välja näeks
+     - [x] otsingu väli ja nupp kenamaks
+     - [x] kuupäeva font ilusamaks
 - [x] css ülesandele vastavalt
     - [x] Use flexbox to arrange the layout
     - [x] Use an ID selector
@@ -36,4 +36,4 @@ homework-group-999
     - [x] Use a Child Selector (e.g., div > p)
     - [x] Use an Adjacent Sibling Selector (e.g., div + p)
     - [x] Use a General Sibling Selector (e.g., div ~ p)
-- [ ] kood puhtamaks
+- [x] kood puhtamaks
