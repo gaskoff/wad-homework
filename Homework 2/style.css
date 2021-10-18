@@ -1,0 +1,107 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: SteelBlue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  background-color: white;
+  margin: 0px;
+  height: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+main{
+  position: absolute;
+  top: 35px;
+  background-color: white;
+  display: flex;
+  width: 60%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 35px);
+}
+
+.post{
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  border-radius: 2px;
+}
+
+.search-button{
+  width: 100px;
+  color: white;
+  font-family: cursive;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.search-box{
+  width: 430px;
+}
+
+.date-time{
+  font-size: x-small;
+  font-family: Verdana, sans-serif;
+  color: gray;
+}
+
+.post-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  background-color: white;
+}
+
+.post-header > img, .post-footer > img{
+  height: 25px;
+}
+
+.post-content{
+  margin: 5px;
+}
+
+.post-content > img{
+  width: 100%;
+}
+
+header img {
+  height: calc(100% - 5px);
+}
+
+#post-2 > .post-content > img{
+  display: none;
+}
+
+form {
+  padding: 0px;
+  margin: 0px;
+}
+
+input {
+  margin: 0px;
+  height: 25px;
+}
+
+input[type=submit]{
+  background-color: SteelBlue;
+  border: 0px;
+  height: 30px;
+
+}
