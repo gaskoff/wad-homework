@@ -62,7 +62,7 @@
 
 
 <!-- Homework 2 task 4 -->
-<script>
+<!-- <script>
   function createPostHTML(id, author, title, body, datetime) {
     return '<div class="post" id="' + id + '"> \
       <div class="post-header"> \
@@ -70,12 +70,13 @@
         <span class="date-time">' + datetime + '</span> \
       </div> \
       <div class="post-content"> \
+        <h1>' +title+'</h1>\
         <p>' + body + '</p> \
       </div> \
       <div class="post-footer"> <img src="img/thumb.png" /></div> \
       </div>';
   }
-  $.getJSON("https://api.jsonbin.io/b/61741d609548541c29c76bf2", function(result){
+  $.getJSON("https://api.jsonbin.io/b/61741d609548541c29c76bf2/3", function(result){
   //$.getJSON("resourses/json.json", function(result){
     $.each(result, function(i, field){
       let postID = "post-" + field.id;
@@ -85,9 +86,9 @@
       let postTitle = field.title;
       $("main").append(createPostHTML(postID, postAuthor, postTitle, postBody, postDateTime));
     });
-  });
-</script>
-
+  }); 
+</script> -->
+<script src="indexscript.js"></script>
 
 
 
