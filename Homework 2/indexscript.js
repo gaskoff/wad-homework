@@ -28,7 +28,6 @@ function createPostHTML(id, author, title, body, datetime, image) {
     }
   }
   $.getJSON("https://api.jsonbin.io/b/61741d609548541c29c76bf2/3", function(result){
-  //$.getJSON("json.json", function(result){
     $.each(result, function(i, field){
       let postID = "post-" + field.id;
       let postDateTime = field.create_time;
@@ -39,3 +38,7 @@ function createPostHTML(id, author, title, body, datetime, image) {
       $("main").append(createPostHTML(postID, postAuthor, postTitle, postBody, postDateTime, postImg));
     });
   });
+
+
+  
+  
