@@ -66,12 +66,15 @@
 
 <!-- Homework 2 task 7 logged-in user dropdown -->
 <script>
-
   function toggleUserInfo(){
     let display = document.getElementById("user-info").style.display;
-    document.getElementById("user-info").style.display = display !== "block" ? "block" : "none"
-  }); 
+    document.getElementById("user-info").style.display = display !== "block" ? "block" : "none";
+  }
+  $("#user").click(function(){
+    toggleUserInfo();
+  });
 </script>
+
 <input input type="file" id="data" name="data.json">
 <script src="indexscript.js"></script>
 
