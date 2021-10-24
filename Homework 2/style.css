@@ -105,3 +105,11 @@ input[type=submit]{
   height: 30px;
 
 }
+
+#user-info{
+  background-color: white;
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 35px;
+}

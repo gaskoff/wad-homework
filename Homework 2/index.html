@@ -15,7 +15,11 @@
       <input class="search-box" type="text" text="" name="search_input">
       <input class="search-button" type="submit" value="Search">
     </form>
-    <img src="img/pea.png" />
+    <img id="user" src="img/pea.png" />
+    <div id="user-info">
+      <p class="user-display-name">John Doe</p>
+      <p class="user-email">john.joe@example.com</p>
+    </div>
   </header>
 
 <main>
@@ -88,8 +92,20 @@
   });
 </script>
 
+<!-- Homework 2 task 7 logged-in user dropdown -->
+<script>
 
+  function toggleUserInfo(){
+    let display = document.getElementById("user-info").style.display;
+    document.getElementById("user-info").style.display = display !== "block" ? "block" : "none"
 
+  }
+  $("#user").click(function(){
+    //console.log($(".user-info").style.display);
+    toggleUserInfo();
+
+  });
+</script>
 
 </body>
 </html>
