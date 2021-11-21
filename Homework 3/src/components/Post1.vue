@@ -1,4 +1,4 @@
-<template >
+<template>
 
   <div class="post">
     <div class="post-header">
@@ -8,11 +8,14 @@
     <div class="post-content">
       <img :src='getPosts[0].image' />
       <p>{{getPosts[0].content}} </p>
-      
+
     </div>
-    <div class="post-footer"> <input @click="add" type="image" :src='getPosts[0].likeButton' /><p>Number of likes: {{result}}</p></div>
-    
-    
+    <div class="post-footer">
+      <input @click="add" type="image" :src='getPosts[0].likeButton' />
+      <p>Number of likes: {{result}}</p>
+    </div>
+
+
   </div>
 
 </template>
@@ -36,10 +39,6 @@ export default {
     },
     add () {
       this.result += 1
-      this.emitResult()
-    },
-    reset (){
-      this.result = 0
       this.emitResult()
     }
   }
