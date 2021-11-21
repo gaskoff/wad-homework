@@ -10,7 +10,7 @@
       <p>{{getPosts[1].content}} </p>
       
     </div>
-    <div class="post-footer"> <input @click="increment" type="image" :src='getPosts[1].likeButton' /><p>Number of likes: {{getPosts[1].likeCount}}</p></div>
+    <div class="post-footer"> <input @click="add" type="image" :src='getPosts[1].likeButton' /><p>Number of likes: {{result}}</p></div>
   </div>
 
 </template>
@@ -21,6 +21,21 @@ export default {
   name: "Post2",
   computed: {
     ...mapGetters(['getPosts'])
+  },
+  data () {
+    return {
+      result: 0
+    }
+  },
+  props: ['value'],
+  methods: {
+    emitResult () {
+      this.$emit('input', this.result)
+    },
+    add () {
+      this.result += 1
+      this.emitResult()
+    }
   }
 };
 </script>

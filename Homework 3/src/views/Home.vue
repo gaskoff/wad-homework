@@ -9,10 +9,10 @@
 // @ is an alias to /src
 import Mainbody from "@/components/Mainbody.vue";
 
+
 export default {
   name: "Home",
-  components: { Mainbody }
-
+  components: { Mainbody },
 };
 </script>
 
