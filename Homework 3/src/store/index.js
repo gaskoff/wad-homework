@@ -101,7 +101,6 @@ export default createStore({
       })
     },
     addLike (state, postID) {
-      console.log(postID)
       state.posts[postID-1].likeCount += 1;
   },
 },
