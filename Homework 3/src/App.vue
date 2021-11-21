@@ -1,9 +1,12 @@
 <template>
     <div id="app">
-      
-        <Header/>
-        
-        <Footer/>
+
+        <Header />
+
+        <router-view />
+
+        <Footer />
+
     </div>
 </template>
 
@@ -12,6 +15,7 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+/**/
 export default {
   components: { Header, Footer },
   computed: {
@@ -31,7 +35,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
+.nav {
   padding: 30px;
 
   a {

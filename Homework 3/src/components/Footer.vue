@@ -1,8 +1,8 @@
 <template>
-  <div id="nav">
+  <div class="nav" id="footer">
     <router-link to="/contactus">Contact us</router-link>
   </div>
-  <router-view />
+
 </template>
 
 <script>
@@ -10,3 +10,10 @@ export default {
   name: "Footer"
 };
 </script>
+
+<style lang="scss">
+#footer {
+  background-color: salmon;
+}
+
+</style>
