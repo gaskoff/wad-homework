@@ -17,9 +17,11 @@ export default {
 
 <style lang="scss">
 #mainbody {
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 }
 
 </style>

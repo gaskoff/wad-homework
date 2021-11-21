@@ -17,7 +17,12 @@ export default {
 </script>
 
 <style lang="scss">
-#Home {
-  background-color: green;
+
+#Home{
+  background-color: SteelBlue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 </style>
