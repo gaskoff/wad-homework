@@ -1,14 +1,13 @@
 <template>
   <div id="Home">
     <Mainbody />
-    
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Mainbody from "@/components/Mainbody.vue";
 
+import Mainbody from "@/components/Mainbody.vue";
 
 export default {
   name: "Home",
@@ -16,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 
 #Home{
   background-color: SteelBlue;
