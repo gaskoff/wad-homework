@@ -2,22 +2,26 @@
 
   <div class="post">
     <div class="post-header">
-      <img src="@/assets/pea.png" />
-      <span class="date-time">1. jaanuar 1970 13:24</span>
+      <img :src='getPosts[2].icon' />
+      <span class="date-time">{{getPosts[2].date}}</span>
     </div>
     <div class="post-content">
-      <img src="@/assets/pilt1.png" />
-      <p>I think its going to rain </p>
-      <p>Aga see sisu ei peaks siit tulema !!!</p>
+      <img :src='getPosts[2].image' />
+      <p>{{getPosts[2].content}} </p>
+      
     </div>
-    <div class="post-footer"> <img src="@/assets/thumb.png" /></div>
+    <div class="post-footer"> <input type="image" :src='getPosts[2].likeButton'/></div>
   </div>
 
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: "Post"
+  name: "Post3",
+  computed: {
+    ...mapGetters(['getPosts'])
+  }
 };
 </script>
 
@@ -58,6 +62,14 @@ export default {
   .post-content > h1{
     font-size: 1em;
     text-transform: uppercase;
+  }
+  p{
+    text-align: left;
+  }
+  input{
+      width: 40px;
+      height: 40px;
+      float: left;
   }
 
 </style>

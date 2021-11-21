@@ -1,17 +1,20 @@
 <template>
   <div id="mainbody">
-    <h1>main body with posts</h1>
-    <Post />
-    <p>spskdjffsdf</p>
+    <h1>Home</h1>
+    <Post1 />
+    <Post2 />
+    <Post3 />
   </div>
 
 </template>
 
 <script>
-import Post from "@/components/Post.vue";
+import Post1 from "@/components/Post1.vue";
+import Post2 from "@/components/Post2.vue";
+import Post3 from "@/components/Post3.vue";
 export default {
   name: "Mainbody",
-  components: { Post }
+  components: { Post1, Post2, Post3 }
 };
 </script>
 
