@@ -1,11 +1,6 @@
 import { createStore } from "vuex";
 
-
 export default createStore({
-  /*state: {},
-  mutations: {},
-  actions: {},
-  modules: {},*/
   state: {
     posts: [
       {
@@ -15,8 +10,7 @@ export default createStore({
         date: "1. jaanuar 1970 13:24",
         content: "I think it's going to rain",
         likeButton: require("@/assets/thumb.png"),
-        likeCount: 0,
-
+        likeCount: 5,
       },
       {
         id: 2,
@@ -24,8 +18,7 @@ export default createStore({
         date: "5. jaanuar 1970 13:24",
         content: "Which weighs more, a pound of feathers or a pound of bricks?",
         likeButton: require("@/assets/thumb.png"),
-        likeCount: 0,
-
+        likeCount: 3,
       },
       {
         id: 3,
@@ -35,7 +28,6 @@ export default createStore({
         content: "Felt cute, might delete later",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 4,
@@ -44,7 +36,6 @@ export default createStore({
         content: "Dogs vs cats, like for dogs, ignore for cats",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 5,
@@ -53,7 +44,6 @@ export default createStore({
         content: "I have a headache.",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 6,
@@ -63,7 +53,6 @@ export default createStore({
         content: "What animal is this?",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 7,
@@ -72,7 +61,6 @@ export default createStore({
         content: "How do i make the like button counter work?",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 8,
@@ -81,7 +69,6 @@ export default createStore({
         content: "Any good movie recommendations?",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 9,
@@ -90,7 +77,6 @@ export default createStore({
         content: '"12 angry men" is a good movie',
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
       {
         id: 10,
@@ -100,65 +86,32 @@ export default createStore({
         content: "Could anyone tell me what this weird mushroom is in the Jornada del Muerto desert?",
         likeButton: require("@/assets/thumb.png"),
         likeCount: 0,
-
       },
     ]
-
   },
+
   getters: {
     getPosts: state => state.posts
   },
-  mutations: { //?
-  /*  increment: function(){
-      this.$store.state.posts[0].likeCount+=1
-    },*/
 
-    resetLikeCount: function(){
-      this.$store.state.posts.forEach(post => {
-        console.log('trkjfdfgsdg');
+  mutations: {
+    resetLikes (state) {
+      state.posts.forEach( post =>{
         post.likeCount = 0;
       })
-    }
-  },
-  /*
-  mutations: {
-    increment: state => {
-      state.posts[0].likeCount+=1
     },
-
-    resetLikeCount: state=> {
-      state.posts.forEach(post => {
-        console.log('öääöäöä');
-        post.likeCount=0;
-      })
-      }
-  },*/
+    addLike (state, postID) {
+      console.log(postID)
+      state.posts[postID-1].likeCount += 1;
+  },
+},
   actions: {
-
+    resetLikes (context) {
+      context.commit('resetLikes')
+    },
+    addLike (context, postID) {
+      context.commit('addLike', postID)
+    }
   },
   modules: {},
 });
-/*import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-export default new Vuex.Store({
-  state: {
-    posts: [
-      {
-        icon: "@/assets/pea.png",
-        image: require("@/assets/pilt1.png"),
-        date: "1. jaanuar 1970 13:24",
-        content: "I think its going to rain",
-        likeButton: "@/assets/thumb.png"
-      }
-    ]
-
-  },
-  getters: {
-    getPosts: state => state.posts
-  },
-  mutations: {},
-  actions: {},
-  modules: {},
-}); */

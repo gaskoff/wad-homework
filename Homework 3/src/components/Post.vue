@@ -12,8 +12,8 @@
     </div>
 
     <div class="post-footer">
-      <input @click="add" type="image" :src="post.likeButton" />
-      <p>Number of likes: {{ result }}</p>
+      <input @click="add2(post.id)" type="image" :src="post.likeButton" />
+      <p>Number of likes: {{ post.likeCount }}</p>
     </div>
   </div>
 
@@ -21,30 +21,17 @@
 
 <script>
 import { mapGetters } from "vuex"
+import { mapActions } from "vuex"
+
 export default {
   name: "Post",
   computed: {
     ...mapGetters(["getPosts"])
   },
-  data () {
-    return {
-      result: 0
-    }
-  },
-  props: ["value"],
   methods: {
-    emitResult () {
-      this.$emit("input", this.result)
-    },
-    add () {
-      this.result += 1
-      this.emitResult()
-    },
-
-  reset (){
-    this.result = 0
-    this.emitResult()
-  }
+    ...mapActions({
+      add2: 'addLike'
+    })
   }
 };
 </script>
