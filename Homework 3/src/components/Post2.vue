@@ -10,7 +10,7 @@
       <p>{{getPosts[1].content}} </p>
       
     </div>
-    <div class="post-footer"> <input type="image" :src='getPosts[1].likeButton' /></div>
+    <div class="post-footer"> <input @click="increment" type="image" :src='getPosts[1].likeButton' /><p>Number of likes: {{getPosts[1].likeCount}}</p></div>
   </div>
 
 </template>
