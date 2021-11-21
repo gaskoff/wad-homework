@@ -1,4 +1,4 @@
-<template>
+<template >
 
   <div class="post">
     <div class="post-header">
@@ -36,6 +36,10 @@ export default {
     },
     add () {
       this.result += 1
+      this.emitResult()
+    },
+    reset (){
+      this.result = 0
       this.emitResult()
     }
   }
