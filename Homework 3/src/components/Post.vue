@@ -1,50 +1,42 @@
 <template>
 
-  <div class="post">
+  <div class="post" v-for="post in getPosts" :key="post.id">
     <div class="post-header">
-      <img :src='getPosts[1].icon' />
-      <span class="date-time">{{getPosts[1].date}}</span>
+      <img :src="post.icon" />
+      <span class="date-time">{{ post.date }}</span>
     </div>
+
     <div class="post-content">
-      
-      <p>{{getPosts[1].content}} </p>
-      
+      <img :src="post.image" />
+      <p>{{ post.content }} </p>
     </div>
-    <div class="post-footer"> <input @click="add" type="image" :src='getPosts[1].likeButton' /><p>Number of likes: {{result}}</p></div>
+
+    <div class="post-footer">
+      <input @click="add2(post.id)" type="image" :src="post.likeButton" />
+      <p>Number of likes: {{ post.likeCount }}</p>
+    </div>
   </div>
 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex"
+import { mapActions } from "vuex"
+
 export default {
-  name: "Post2",
+  name: "Post",
   computed: {
-    ...mapGetters(['getPosts'])
+    ...mapGetters(["getPosts"])
   },
-  data () {
-    return {
-      result: 0
-    }
-  },
-  props: ['value'],
   methods: {
-    emitResult () {
-      this.$emit('input', this.result)
-    },
-    add () {
-      this.result += 1
-      this.emitResult()
-    },
-    reset (){
-      this.result = 0
-      this.emitResult()
-    }
+    ...mapActions({
+      add2: 'addLike'
+    })
   }
 };
 </script>
 
-<style lang="scss">
+<style>
 
   .post{
     width: 60%;

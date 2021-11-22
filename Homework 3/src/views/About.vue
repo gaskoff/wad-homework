@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .about {
   background-color: orange;
 }

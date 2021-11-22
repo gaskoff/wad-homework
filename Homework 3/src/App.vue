@@ -12,19 +12,16 @@
 
 
 <script>
-// @ is an alias to /src
+
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-/**/
+
 export default {
   components: { Header, Footer },
-  computed: {
-    loaded() {
-      return this.$store.state.loadState == "loaded";
-    }
-  }
 };
+
 </script>
+
 
 <style lang="scss">
 #app {

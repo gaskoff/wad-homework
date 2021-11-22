@@ -8,7 +8,7 @@
     </div>
     <div class = contactdetails>
       <h2>Mikk Gaškov</h2>
-      <h3>Email: email</h3>
+      <h3>Email: gaskoff@ut.ee</h3>
       <h3>Phone: phone</h3>
     </div>
     <div class = contactdetails>
@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .contactus {
   background-color: yellow;
 }
