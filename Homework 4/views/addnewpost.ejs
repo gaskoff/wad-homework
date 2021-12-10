@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <title>Add a new post</title>
-    <script>
-        function addPost(){
-            var newPostTitle = document.getElementById("newPostTitle").value;
-            var newPostBody = document.getElementById("newPostBody").value;
-            var newPostURL = document.getElementById("newPostURL").value;
-            
-        }
-    </script>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
@@ -22,8 +14,40 @@
         <p class="addnewpostbox">Image URL</p><input type="text"  class="addnewpostbox" id="newPostURL">
         <br>
         <br>
-        <button class="addnewpostbox" onclick="addPost()">Add post</button>
+        <button class="addnewpostbox" id="addpostbutton">Add post</button>
      </div>
     <%- include('./partials/footer.ejs') %>
+    <script type="module">
+        function addPost(){
+    var newPostTitle = document.getElementById("newPostTitle").value;
+    var newPostBody = document.getElementById("newPostBody").value;
+    var newPostURL = document.getElementById("newPostURL").value;
+    var data = {
+        title: newPostTitle,
+        body: newPostBody,
+        url: newPostURL
+    };
+    /*var req = new XMLHttpRequest();
+    req.open("POST", '/localhost:3000', true);
+    req.send(data);*/
+    var request = require('request');
+    //import request from "request";
+    var clientServerOptions = {
+        uri: 'http://'+clientHost+''+clientContext,
+        body: JSON.stringify(data),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    
+    request(clientServerOptions, function (error, response) {
+        console.log(error,response.body);
+        console.log("Post request")
+        return;
+    });
+}
+document.getElementById("addpostbutton").addEventListener("click", addPost, true);
+    </script>
 </body>
 </html>
