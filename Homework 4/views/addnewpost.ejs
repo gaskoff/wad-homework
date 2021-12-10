@@ -3,18 +3,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Add a new post</title>
+    <script>
+        function addPost(){
+            var newPostTitle = document.getElementById("newPostTitle").value;
+            var newPostBody = document.getElementById("newPostBody").value;
+            var newPostURL = document.getElementById("newPostURL").value;
+            
+        }
+    </script>
 </head>
 <body>
-    <nav>
-        <a href="/">Posts page</a> |
-        <a href="/singlepost">Single post</a> |
-        <a href="/addnewpost">Add a new post</a> |
-        <a href="/404">404</a>
-        </nav>
-       <footer class="footer">
-        <p>© WAD 2021 </p>
-       </footer>
-       
+    <%- include('./partials/navbar.ejs') %>
+    <div id="addpostform">
+        <p class="addnewpostbox">Title</p><input type="text" class="addnewpostbox" id="newPostTitle">
+        <p class="addnewpostbox">Body</p><input type="text"  class="addnewpostbox" id="newPostBody">
+        <p class="addnewpostbox">Image URL</p><input type="text"  class="addnewpostbox" id="newPostURL">
+        <br>
+        <br>
+        <button class="addnewpostbox" onclick="addPost()">Add post</button>
+     </div>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

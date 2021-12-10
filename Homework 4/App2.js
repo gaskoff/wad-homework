@@ -42,6 +42,15 @@ app.get('/singleposts/:id', async(req, res) => {
  console.error(err.message);
  }
 });
+/////////////////
+app.get('/addnewpost', async(req, res) => {
+  res.render('addnewpost');
+ });
+/////////////////
+app.use((req, res) => {
+  res.status(404).render('404');
+ });
+ ////////////////
 
 app.get('/:id', async(req, res) => {
  try {
@@ -72,6 +81,9 @@ app.delete('/:id', async(req, res) => {
  }
 });
 
+
+
+
 /*app.post('/', async(req, res) => {
  try {
  const post = req.body;
@@ -89,6 +101,4 @@ app.get('/create', (req, res) => {
  res.render('create');
 });*/
 
-app.use((req, res) => {
- res.status(404).render('404');
-});
+
