@@ -18,14 +18,22 @@
 
     <% if (posts.length > 0) { %>
       <% posts.forEach(post => { %>
+        <div class="singlepostdiv">
+          <div class="singlepostheader">
+            <img src="https://img.tineye.com/result/def15e8db87d742ae39a15dc62c55e877f88b7f7c058a6bb108f95f2df471605?size=160" class="singlepostprofile" width="45px" height="45px">
+            <p class="singlepostdate">01.01.1970</p>
+          </div>
         <a class="singlepost" href="/singleposts/<%= post.id %>">
+          <% if (post.urllink != "") { %>
+            <img class="singlepostimage" src=<%= post.urllink %>>
+            <% } %>
           <h3 class="title"> <%= post.title %> </h3>
           <p class="body"> <%= post.body %> </p>
         </a>
         <form id="likebutton" action="/likepost/<%= post.id %>" method="POST">
           <button onclick="this.form.submit(); this.disabled=true">Like</button>
-          
         </form>
+      </div>
         <hr>
         <% }) %>
         <% } else { %>

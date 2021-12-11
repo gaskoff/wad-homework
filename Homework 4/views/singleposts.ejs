@@ -14,6 +14,9 @@
 
   <hr>
   <div class="singlepost">
+    <% if (post.urllink != "") { %>
+      <img src=<%= post.urllink %>>
+    <% } %>
     <h2><%= post.title %></h2>
     <div class="content">
       <p> <%= post.body %> </p>
