@@ -50,6 +50,10 @@ a{
   float:left;
   margin-left: 5px;
 }
+.singlepostauthor{
+  float:left;
+  margin-left: 5px;
+}
 .singlepostdate{
   float:right;
   margin-right:5px;
@@ -69,3 +73,8 @@ a{
   font-family:'Times New Roman', Times, serif;
   text-decoration: none;
 }
+
+.likebutton{
+  height: 50px;
+}
+

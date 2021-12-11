@@ -102,8 +102,8 @@ app.post('/addnewpost', async(req, res) => {
 
      // post id will be one higher than the highest id of posts in db
      const newpost = await pool.query(
-       "INSERT INTO nodetable(id, title, body, urllink, likes_count) VALUES ($1, $2, $3, $4, $5)",
-       [++postsCount, post.title, post.body, post.urllink, 0]
+       "INSERT INTO nodetable(id, title, body, urllink, likes_count, author, timestamp) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+       [++postsCount, post.title, post.body, post.urllink, 0, post.urllink, post.timestamp]
      );
 
      // redirectig to first page with all the posts seems logical
