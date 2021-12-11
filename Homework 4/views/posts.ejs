@@ -24,13 +24,15 @@
             <p class="singlepostauthor"><%= post.author %></p>
             <p class="singlepostdate"><%= post.timestamp %></p>
           </div>
-        <a class="singlepost" href="/singleposts/<%= post.id %>">
+
+        <div class="singlepost" onclick="location.href='/singleposts/<%= post.id %>'" style="cursor:pointer" >
           <% if ( post.urllink != "") { %>
             <img class="singlepostimage" src=<%= post.urllink %>>
             <% } %>
           <h3 class="title"> <%= post.title %> </h3>
           <p class="body"> <%= post.body %> </p>
-        </a>
+        </div>
+
         <form id="likebutton" action="/likepost/<%= post.id %>" method="POST">
           <button onclick="like(this)" >Like</button><p>Likes: <%=post.likes_count %></p>
         </form>
