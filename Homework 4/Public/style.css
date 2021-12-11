@@ -77,4 +77,15 @@ a{
 .likebutton{
   height: 50px;
 }
+.singlepostpagediv{
+  width:50%;
+  margin-left: 25%;
+  background-color: aliceblue;
+  margin-bottom: 100px;
+}
+
+.singlepostimage{
+  width:100%;
+  height:500px;
+}
 

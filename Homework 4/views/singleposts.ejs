@@ -14,8 +14,16 @@
 
   <hr>
   <div class="singlepost">
+
+    <div class="singlepostpagediv">
+      <div class="singlepostheader">
+        <img src="https://img.tineye.com/result/def15e8db87d742ae39a15dc62c55e877f88b7f7c058a6bb108f95f2df471605?size=160" class="singlepostprofile" width="45px" height="45px">
+        <p class="singlepostauthor"><%= post.author %></p>
+        <p class="singlepostdate"><%= post.timestamp %></p>
+      </div>
+
     <% if (post.urllink != "") { %>
-      <img src=<%= post.urllink %>>
+      <img class="singlepostimage" src=<%= post.urllink %>>
     <% } %>
     <h2><%= post.title %></h2>
     <div class="content">
@@ -28,7 +36,7 @@
     </form>
 
   </div>
-
+</div>
 <hr>
 <%- include('./partials/footer.ejs') %>
 
