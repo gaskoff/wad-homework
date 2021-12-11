@@ -59,7 +59,7 @@ app.get('/addnewpost', async(req, res) => {
 // the '/' page. if you visit another page and come back to '/'
 // then buttons are active again
 //
-// db has to be redone !!! no likes count at the moment !!!
+// number of likes are stored in column 'likes_count' (integer)
 app.post('/likepost/:id', async(req, res) =>{
   console.log("likepost: user likes post number", req.params);
 });
@@ -102,8 +102,8 @@ app.post('/addnewpost', async(req, res) => {
 
      // post id will be one higher than the highest id of posts in db
      const newpost = await pool.query(
-       "INSERT INTO nodetable(id, title, body, urllink) VALUES ($1, $2, $3, $4)",
-       [++postsCount, post.title, post.body, post.urllink]
+       "INSERT INTO nodetable(id, title, body, urllink, likes_count) VALUES ($1, $2, $3, $4, $5)",
+       [++postsCount, post.title, post.body, post.urllink, 0]
      );
 
      // redirectig to first page with all the posts seems logical

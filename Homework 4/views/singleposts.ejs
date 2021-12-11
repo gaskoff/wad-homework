@@ -17,6 +17,7 @@
     <h2><%= post.title %></h2>
     <div class="content">
       <p> <%= post.body %> </p>
+      <p>Likes in database: <%= post.likes_count %> </p>
     </div>
 
     <form action="/deletepost/<%= post.id %>" method="POST">
