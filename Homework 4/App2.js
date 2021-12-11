@@ -62,6 +62,27 @@ app.get('/addnewpost', async(req, res) => {
 // number of likes are stored in column 'likes_count' (integer)
 app.post('/likepost/:id', async(req, res) =>{
   console.log("likepost: user likes post number", req.params);
+  try {
+    const { id } = req.params;
+
+    const likescountresponse = await pool.query(
+      "SELECT likes_count FROM nodetable WHERE id = $1", [id]
+    );
+
+    let likescount = likescountresponse.rows[0].likes_count;
+
+    console.log('this post had', likescount, 'likes');
+
+    const updatelikescount = await pool.query(
+      "UPDATE nodetable SET likes_count = $1 WHERE id = $2",
+      [++likescount, id]
+    );
+
+    res.redirect('/');
+
+  } catch (err) {
+    console.error(err.message);
+  }
 });
 
 // [x] this works
