@@ -7,97 +7,115 @@ const app = express();
 app.set('view engine', 'ejs');
 //without this middleware, we cannot use data submitted by forms
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//app.use(express.json());
 app.use(cors());
 app.use(express.static('Public'));
 
 app.listen(3000, () => {
- console.log("Server is listening to port 3000")
+  console.log("Server is listening to port 3000")
 });
 
+// Home page --
+// pulls all the posts from DB and renders posts page w/ those
+// [x] this works
 app.get('/', async(req, res) => {
- try {
- console.log("get posts request has arrived");
- const posts = await pool.query(
-   // "SELECT * FROM Posts"
-   "SELECT * FROM nodetable"
- );
- res.render('posts', { posts: posts.rows });
- } catch (err) {
- console.error(err.message);
- }
+  console.log("user navigated to '/' ");
+  try {
+    console.log("get posts request has arrived");
+    const posts = await pool.query(
+      "SELECT * FROM nodetable"
+    );
+    res.render('posts', { posts: posts.rows });
+  } catch (err) {
+    console.error(err.message);
+  }
 });
 
+// [x] this works
 app.get('/singleposts/:id', async(req, res) => {
- try {
- const id = req.params.id;
- console.log(req.params.id);
- console.log("get a single post request has arrived");
- const posts = await pool.query(
- //"SELECT * FROM Posts WHERE id = $1", [id]
-  "SELECT * FROM nodetable WHERE id = $1", [id]
- );
- res.render('singleposts', { posts: posts.rows[0] });
- } catch (err) {
- console.error(err.message);
- }
+  console.log("singleposts");
+  try {
+    const id = req.params.id;
+    console.log(req.params.id);
+    console.log("get a single post request has arrived");
+    const posts = await pool.query(
+      "SELECT * FROM nodetable WHERE id = $1", [id]
+    );
+    res.render('singleposts', { post: posts.rows[0] });
+  } catch (err) {
+    console.error(err.message);
+  }
 });
-/////////////////
+
+// [x] this works, nothing more needed here
 app.get('/addnewpost', async(req, res) => {
   res.render('addnewpost');
- });
-/////////////////
+});
+
+
+// button works, no action in db
+//
+// inactivating the button in posts.ejs works only when you stay on
+// the '/' page. if you visit another page and come back to '/'
+// then buttons are active again
+//
+// db has to be redone !!! no likes count at the moment !!!
+app.post('/likepost/:id', async(req, res) =>{
+  console.log("likepost: user likes post number", req.params);
+});
+
+// [x] this works
+app.post('/deletepost/:id', async(req, res) => {
+  console.log("delete !!");
+  try {
+    console.log(req.params);
+    const { id } = req.params;
+    const post = req.body;
+    console.log("delete a post request has arrived");
+    const deletepost = await pool.query(
+      "DELETE FROM nodetable WHERE id = $1", [id]
+    );
+
+    // maybe not the best redirection
+    res.redirect('/');
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+// [x] this part seems to work
+app.post('/addnewpost', async(req, res) => {
+  console.log("Add new post");
+  try {
+     const post = req.body;
+     console.log(post);
+
+     // we have to get the highest id of existing posts in db
+     // to assign proper id for new post
+     // (this is due bad db design :) )
+     const postsCountQuery = await pool.query(
+       "SELECT MAX(id) FROM nodetable"
+     );
+     let postsCount = postsCountQuery.rows[0].max;
+     console.log(postsCount);
+
+     // post id will be one higher than the highest id of posts in db
+     const newpost = await pool.query(
+       "INSERT INTO nodetable(id, title, body, urllink) VALUES ($1, $2, $3, $4)",
+       [++postsCount, post.title, post.body, post.urllink]
+     );
+
+     // redirectig to first page with all the posts seems logical
+     res.redirect('/');
+
+  } catch(err){
+    console.error(err.message);
+  }
+});
+
+// [x] this part works
 app.use((req, res) => {
+  console.log("user navigated to non-existing page '", req.url, "'");
   res.status(404).render('404');
  });
- ////////////////
-
-app.get('/:id', async(req, res) => {
- try {
- const { id } = req.params;
- console.log("get a post request has arrived");
- const Apost = await pool.query(
- //"SELECT * FROM Posts WHERE id = $1", [id]
- "SELECT * FROM nodetable WHERE id = $1", [id]
- );
- res.json(Apost.rows[0]);
- } catch (err) { console.error(err.message);
- }
-});
-
-app.delete('/:id', async(req, res) => {
- try {
- console.log(req.params);
- const { id } = req.params;
- const post = req.body;
- console.log("delete a post request has arrived");
- const deletepost = await pool.query(
- //"DELETE FROM Posts WHERE id = $1", [id]
- "DELETE FROM nodetable WHERE id = $1", [id]
- );
- res.redirect('posts');
- } catch (err) {
- console.error(err.message);
- }
-});
-
-
-
-
-app.post('/', async(req, res) => {
- try {
- const post = req.body;
- console.log(post);
- const newpost = await pool.query(
- "INSERT INTO nodetable(title, body, urllink) values ($1, $2, $3) RETURNING*", [post.title, post.body, post.urllink]
- );
- res.redirect('posts');
- } catch (err) {
- console.error(err.message)
- }
-});
-app.get('/create', (req, res) => {
- res.render('create');
-});
-
-
