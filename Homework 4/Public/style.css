@@ -30,3 +30,12 @@ a{
 .postslist{
   background-color: aliceblue;
 }
+#div404{
+  width: 50px;
+   height: 15px;
+  position: absolute;
+   top: 35%;
+   left: 48%;
+   margin-left: -(50/2)px;
+   margin-top: -(15/2)px;
+}
